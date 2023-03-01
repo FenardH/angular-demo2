@@ -10,14 +10,14 @@ export class AuthService {
   constructor() { }
 
   connect(){
-    this.isConnected = true
+    localStorage.setItem('token', 'MonBeauDouxEtSoyeuxToken')
   }
 
   disconnect(){
-    this.isConnected = false;
+    localStorage.removeItem('token')
   }
 
   get isConnect() : boolean{
-    return this.isConnected
+    return localStorage.getItem('token') != undefined
   }
 }
