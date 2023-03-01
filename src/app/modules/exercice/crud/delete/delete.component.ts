@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common'
 import { ArticleService } from '../services/article/article.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class DeleteComponent {
 
   constructor(private _articleService : ArticleService
     , private _activatedRoute : ActivatedRoute
-    , private _router : Router){
+    , private _router : Router,
+    private _location : Location){
 
     this.id = this._activatedRoute.snapshot.params['id']
 
@@ -27,7 +29,7 @@ export class DeleteComponent {
 
   cancel(){
 
-    this._router.navigate(['/exercice/crud/read', this.id])
+    this._location.back()
 
   }
 

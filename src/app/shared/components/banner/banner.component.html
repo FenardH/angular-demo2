@@ -1,3 +1,7 @@
+<br>
+<button *ngIf="!isConnect" (click)="connect()">Connect</button>
+<button *ngIf="isConnect" (click)="disconnect()">Disconnect</button>
+<br>
 <a routerLink="demo">Demo</a>
 <br>
 <a routerLink="exercice">Exo</a>
