@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 import { ExerciceRoutingModule } from './exercice-routing.module';
 import { ExerciceBannerComponent } from './exercice-banner/exercice-banner.component';
@@ -10,6 +10,11 @@ import { CreateComponent } from './crud/create/create.component';
 import { UpdateComponent } from './crud/update/update.component';
 import { DeleteComponent } from './crud/delete/delete.component';
 import { ArticleService } from './crud/services/article/article.service';
+import { SearchBarComponent } from './pokemon/search-bar/search-bar.component';
+import { ReadPokemonComponent } from './pokemon/read-pokemon/read-pokemon.component';
+import { StatsPokemonComponent } from './pokemon/stats-pokemon/stats-pokemon.component';
+import { TypesPokemonComponent } from './pokemon/types-pokemon/types-pokemon.component';
+import { SharedModule } from 'src/app/shared/module/shared/shared.module';
 
 
 @NgModule({
@@ -19,12 +24,17 @@ import { ArticleService } from './crud/services/article/article.service';
     ReadOneComponent,
     CreateComponent,
     UpdateComponent,
-    DeleteComponent
+    DeleteComponent,
+    SearchBarComponent,
+    ReadPokemonComponent,
+    StatsPokemonComponent,
+    TypesPokemonComponent
   ],
   imports: [
     CommonModule,
     ExerciceRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class ExerciceModule { }

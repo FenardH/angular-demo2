@@ -9,6 +9,7 @@ import { ReadOneComponent } from './demo1/read-one/read-one.component';
 import { AnimalService } from 'src/app/shared/services/animal/animal.service';
 import { SubjectComponent } from './subject/subject.component';
 import { HttpClientComponent } from './http-client/http-client.component';
+import { StatsPokemonComponent } from './stats-pokemon/stats-pokemon.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HttpClientComponent } from './http-client/http-client.component';
     ReadAllComponent,
     ReadOneComponent,
     SubjectComponent,
-    HttpClientComponent
+    HttpClientComponent,
+    StatsPokemonComponent
   ],
   imports: [
     CommonModule,

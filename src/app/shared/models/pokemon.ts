@@ -303,6 +303,11 @@
       stats: Stat[];
       types: Type[];
       weight: number;
+      sprites : sprites
+  }
+
+  export interface sprites{
+    front_default : string
   }
 
 

@@ -4,6 +4,7 @@ import {HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BannerComponent } from './shared/components/banner/banner.component';
+import { SharedModule } from './shared/module/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,7 @@ import { BannerComponent } from './shared/components/banner/banner.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
