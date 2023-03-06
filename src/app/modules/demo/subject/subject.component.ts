@@ -18,13 +18,21 @@ export class SubjectComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
 
+
+    //Mon observeur
     this.observer = this.monSubject.subscribe({
+
+      // Action que j'execute quand je recois le message (next('Message'))
       next : (data) => {
         console.log(data);
       },
+
+      //Action que j'execute quand je recois une erreur (error('message ou erreur'))
       error(err) {
         console.error(err);
       },
+
+      //Action executé quand on close l'observable avec la func complete (complete())
       complete() {
         console.log('complete');
       }
@@ -34,6 +42,7 @@ export class SubjectComponent implements OnInit, OnDestroy{
 
   valueInput : string = ''
 
+  // Mon observable.
   monSubject : BehaviorSubject<string> = new BehaviorSubject<string>("Hello World")
 
   sendData(){

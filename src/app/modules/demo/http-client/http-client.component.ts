@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { pokemon } from 'src/app/shared/models/pokemon';
 import { PokeService } from 'src/app/shared/services/poke/poke.service';
 
@@ -11,38 +12,33 @@ export class HttpClientComponent implements OnInit {
 
   errorMessage! : string;
 
-  monPokemon! : pokemon;
+  monPokemon : pokemon | any
 
-  constructor(private _pokeService : PokeService){}
-
+  constructor(private _pokeService : PokeService, private _activatedRoute : ActivatedRoute){}
 
   ngOnInit(): void {
+    let data = this._activatedRoute.snapshot.data['pikachu']
+    if (data.error) {
+      console.log(data);
 
-    this._pokeService.getPikachu().subscribe({
-      next : (data) => {
+      this.errorMessage = data.error.statusText
+    }
+    else{
+      this.monPokemon = data
+    }
 
-        this.monPokemon = data
+    // this._pokeService.getPikachu().subscribe({
+    //   next : (data) => {
+    //     this.monPokemon = data
+    //   },
+    //   error : (err) => {
+    //     this.errorMessage = err.statusText
+    //   }
+    // })
 
-        console.log(this.monPokemon);
-
-
-      },
-      error : (err) => {
-
-        switch(err.status){
-          case 0 : this.errorMessage = 'Mec vise le serveur plz'
-            break;
-          case 404 : this.errorMessage = 'Pokemon introuvable'
-            break;
-        }
-
-        console.log(err);
-
-
-      }
-    })
 
   }
+
 
 
 
